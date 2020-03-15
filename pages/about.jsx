@@ -12,7 +12,7 @@ export default function About() {
         <h1 className="mb-2 text-2xl font-bold">
           Corona Infektionen in der Schweiz und Umgebung.
         </h1>
-        <p className="mb-2">
+        <p className="mb-2 text-gray-800">
           Die Daten von dieser Seite stammen von der{' '}
           <a
             className="text-blue-400"
@@ -22,10 +22,9 @@ export default function About() {
           </a>
           .
         </p>
-        <p className="mb-2">
+        <p className="mb-2 text-gray-800">
           Die API verwendet den Datensatz von John Hopkins University CSSE.
         </p>
-        <p>Die Seite wurde mit next.js und Tailwindcss gebaut.</p>
       </div>
     </div>
   )

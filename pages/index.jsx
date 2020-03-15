@@ -10,7 +10,7 @@ export default function Index() {
         <title>Status</title>
       </Head>
       <Nav />
-      <div className="grid gap-3 mb-4">
+      <div className="grid gap-3 pb-4">
         <div className="container mx-auto">
           <WorldStats />
         </div>
