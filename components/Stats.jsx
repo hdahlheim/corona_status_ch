@@ -6,7 +6,7 @@ export default function Stats({ country, countryCode = null }) {
 
   return (
     (!loading && (
-      <div className="w-full p-4 mx-auto bg-white shadow-md md:rounded">
+      <div className="w-full p-4 mx-auto bg-white shadow md:rounded">
         <h2 className="text-3xl font-bold">{country}</h2>
         <div className="grid grid-cols-3 my-4">
           <div className="mx-auto">

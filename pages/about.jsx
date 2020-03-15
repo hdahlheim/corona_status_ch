@@ -1,10 +1,14 @@
 import Nav from '../components/nav'
+import Head from 'next/head'
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-200">
+      <Head>
+        <title>Info</title>
+      </Head>
       <Nav />
-      <div className="max-w-xl p-8 mx-auto bg-white rounded-md shadow-lg">
+      <div className="max-w-xl p-8 mx-auto bg-white rounded-md shadow">
         <h1 className="mb-2 text-2xl font-bold">
           Corona Infektionen in der Schweiz und Umgebung.
         </h1>

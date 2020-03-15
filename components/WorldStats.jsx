@@ -1,15 +1,15 @@
 import useStats, { useDailyStats } from '../utils/stats'
 
 export default function WorldStats() {
-  const { data, loading, error } = useStats()
+  const { data, loading } = useStats()
   const { data: dailyData, loading: dailyLoading } = useDailyStats()
   const sickEmojies = ['😷', '🤒', '🤧']
   return (
     (!loading && (
-      <div className="w-full p-4 mx-auto bg-white rounded shadow-md">
+      <div className="w-full p-4 mx-auto bg-white rounded shadow">
         <h2 className="text-3xl font-bold">Weltweit</h2>
         <div className="grid my-4 md:grid-cols-3">
-          <div className="mb-2 md:mx-auto md:mb-0">
+          <div className="mb-3 border-b md:border-none md:mx-auto md:mb-0">
             <h3 className="text-xl font-semibold md:text-sm">Confirmed:</h3>
             <div className="text-2xl font-bold">
               {sickEmojies[(sickEmojies.length * Math.random()) | 0]}{' '}
@@ -21,7 +21,7 @@ export default function WorldStats() {
               </div>
             )}
           </div>
-          <div className="mb-2 md:mx-auto md:mb-0">
+          <div className="mb-3 border-b md:border-none md:mx-auto md:mb-0">
             <h3 className="text-xl font-semibold md:text-sm">Recovered:</h3>
             <div className="text-2xl font-bold">🤙 {data.recovered.value}</div>
             {!dailyLoading && (
@@ -30,7 +30,7 @@ export default function WorldStats() {
               </div>
             )}
           </div>
-          <div className="mb-2 md:mx-auto md:mb-0">
+          <div className="mb-3 border-b md:border-none md:mx-auto md:mb-0">
             <h3 className="text-xl font-semibold md:text-sm">Deaths:</h3>
             <div className="text-2xl font-bold">💀 {data.deaths.value}</div>
             <div className="text-sm font-semibold">Delta: unavailable</div>
