@@ -1,4 +1,5 @@
 import useStats from '../utils/stats'
+import { formatNumber } from '../utils/formatter'
 
 export default function Stats({ country, countryCode = null }) {
   const { data, loading, error } = useStats(countryCode)
@@ -13,19 +14,19 @@ export default function Stats({ country, countryCode = null }) {
             <h3 className="text-sm font-semibold">Confirmed:</h3>
             <span className="text-xl font-bold md:text-2xl">
               {sickEmojies[(sickEmojies.length * Math.random()) | 0]}{' '}
-              {data.confirmed.value}
+              {formatNumber(data.confirmed.value)}
             </span>
           </div>
           <div className="mx-auto">
             <h3 className="text-sm font-semibold">Recovered:</h3>
             <span className="text-xl font-bold md:text-2xl">
-              🤙 {data.recovered.value}
+              🤙 {formatNumber(data.recovered.value)}
             </span>
           </div>
           <div className="mx-auto">
             <h3 className="text-sm font-semibold">Deaths:</h3>
             <span className="text-xl font-bold md:text-2xl">
-              💀 {data.deaths.value}
+              💀 {formatNumber(data.deaths.value)}
             </span>
           </div>
         </div>

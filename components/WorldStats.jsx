@@ -1,9 +1,11 @@
 import useStats, { useDailyStats } from '../utils/stats'
+import { formatNumber } from '../utils/formatter'
 
 export default function WorldStats() {
   const { data, loading } = useStats()
   const { data: dailyData, loading: dailyLoading } = useDailyStats()
   const sickEmojies = ['😷', '🤒', '🤧']
+
   return (
     (!loading && (
       <div className="w-full p-4 mx-auto bg-white rounded shadow">
@@ -13,26 +15,30 @@ export default function WorldStats() {
             <h3 className="text-xl font-semibold md:text-sm">Confirmed:</h3>
             <div className="text-2xl font-bold">
               {sickEmojies[(sickEmojies.length * Math.random()) | 0]}{' '}
-              {data.confirmed.value}
+              {formatNumber(data.confirmed.value)}
             </div>
             {!dailyLoading && (
               <div className="text-sm font-semibold">
-                Delta: {dailyData.deltaConfirmed}
+                Delta: {formatNumber(dailyData.deltaConfirmed)}
               </div>
             )}
           </div>
           <div className="mb-3 border-b md:border-none md:mx-auto md:mb-0">
             <h3 className="text-xl font-semibold md:text-sm">Recovered:</h3>
-            <div className="text-2xl font-bold">🤙 {data.recovered.value}</div>
+            <div className="text-2xl font-bold">
+              🤙 {formatNumber(data.recovered.value)}
+            </div>
             {!dailyLoading && (
               <div className="text-sm font-semibold">
-                Delta: {dailyData.deltaRecovered}
+                Delta: {formatNumber(dailyData.deltaRecovered)}
               </div>
             )}
           </div>
           <div className="mb-3 border-b md:border-none md:mx-auto md:mb-0">
             <h3 className="text-xl font-semibold md:text-sm">Deaths:</h3>
-            <div className="text-2xl font-bold">💀 {data.deaths.value}</div>
+            <div className="text-2xl font-bold">
+              💀 {formatNumber(data.deaths.value)}
+            </div>
             <div className="text-sm font-semibold">Delta: unavailable</div>
           </div>
         </div>
